@@ -38,7 +38,7 @@ Route::get('/people', function () {
   // smaller chunks (e.g. 15 rows of data at a time). This is called pagination and Laravel
   // has a built-in function to do this for us that adds the necessary meta data. Try this
   // to see the difference:
-  return Person::paginate();
+  return Person::paginate(10);
 });
 
 // This route will accept form fields and allow us to create a new Person object and store it in
