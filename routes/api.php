@@ -41,6 +41,18 @@ Route::get('/people', function () {
   return Person::paginate(10);
 });
 
+// For routes that result in loading a model, we can take advantage of Laravel's
+// route-model-binding to automatically validate the dynamic "id" parameter from the URL
+// e.g. https://week12.dev/api/people/66  <- 66 is the id value
+// In this case we are using the placeholder {person} - the name must match the model name -
+// and then Laravel will attempt to load a Person model from the database with the given "id" value.
+// If it finds a match it will populate the $person variable. If not, it will return a 404 error.
+// This means that we do not have write any bloilerplate code to attempt to fetch the record and
+// test to see if we got a result, and if not handle the error. It is all done for us.
+Route::get('/people/{person}', function (Person $person) {
+  return $person;
+});
+
 // This route will accept form fields and allow us to create a new Person object and store it in
 // the database.  We call the create method (inherited from Eloquent) on the Person class. It takes
 // an associative array of property names and values as an argument.
@@ -60,7 +72,7 @@ Route::post('/people', function (Request $request) {
 // For our update routes, we can use either the patch or the put HTTP verbs so we will use the
 // match method on the Route class facade which takes an array of HTTP verbs as the first argument.
 // We will also take advantage of Laravel's route-model-binding to automatically validate the
-// dynamic "id" parameter from the URL - in this we are using the placeholder {person} - and then
+// dynamic "id" parameter from the URL - here we are using the placeholder {person} - and then
 // Laravel will attempt to load a Person model from the database with the given "id" value.
 // If it finds a match it will populate the $person variable. If not, it will return a 404 error.
 Route::match(['patch', 'put'], '/people/{person}', function(Request $request, Person $person) {
