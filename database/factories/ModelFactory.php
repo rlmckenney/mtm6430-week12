@@ -23,11 +23,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Person::class, function (Faker\Generator $faker) {
     return [
-    'first_name' => $faker->firstName,
-    'last_name' => $faker->lastName,
-    'age' => rand(0, 100)
-  ];
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'age' => rand(0, 100)
+    ];
 });

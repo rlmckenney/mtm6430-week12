@@ -25,7 +25,7 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-      return Person::create([
+        return Person::create([
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name'),
         'age' => $request->input('age')
@@ -52,15 +52,15 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-      if (!empty($request->input('first_name'))) {
-        $person->first_name = $request->input('first_name');
-      }
-      if (!empty($request->input('last_name'))) {
-        $person->last_name = $request->input('last_name');
-      }
-      if (!empty($request->input('age'))) {
-        $person->age = $request->input('age');
-      }
+        if (!empty($request->input('first_name'))) {
+            $person->first_name = $request->input('first_name');
+        }
+        if (!empty($request->input('last_name'))) {
+            $person->last_name = $request->input('last_name');
+        }
+        if (!empty($request->input('age'))) {
+            $person->age = $request->input('age');
+        }
 
       // when we have set all of the changed values, we can now save it out to the database.
       $person->save();
@@ -82,7 +82,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-      // We will make a copy of the Person object before we delete it.
+        // We will make a copy of the Person object before we delete it.
       // We will use this in the response data sent back to the client.
       $deletedPerson = $person;
 
