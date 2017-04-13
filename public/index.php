@@ -1,4 +1,10 @@
 <?php
+/**
+ * Quick hack to allow AngularJS client to access API.
+ * Do not use this in production
+ * Use https://github.com/barryvdh/laravel-cors instead.
+ */
+header("Access-Control-Allow-Origin: https://week13-client.dev");
 
 /**
  * Laravel - A PHP Framework For Web Artisans
