@@ -33,4 +33,9 @@ class Person extends Model
 
     // Also note, the $fillable and $guarded properties should be declared as protected, not public.
     // This keeps them safe from accidental manipulation by other objects in your application.
+
+    public function cars()
+    {
+      return $this->hasMany('App\Car');
+    }
 }

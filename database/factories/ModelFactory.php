@@ -31,3 +31,15 @@ $factory->define(App\Person::class, function (Faker\Generator $faker) {
         'age' => rand(0, 100)
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Car::class, function (Faker\Generator $faker) {
+    return [
+        'person_id' => rand(0, 100),
+        'year' => $faker->year,
+        'make' => $faker->randomElement(['Acura', 'BMW', 'Chevrolet', 'Dodge', 'Honda', 'Toyota']),
+        'model' => $faker->word,
+        'colour' => $faker->colorName,
+        'license' => strtoupper($faker->bothify('???? ###'))
+    ];
+});

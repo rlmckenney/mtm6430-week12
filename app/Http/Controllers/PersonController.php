@@ -82,7 +82,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        // We will make a copy of the Person object before we delete it.
+      // We will make a copy of the Person object before we delete it.
       // We will use this in the response data sent back to the client.
       $deletedPerson = $person;
 

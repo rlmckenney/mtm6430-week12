@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // This creates all of the routes for our Person API
 Route::resource('people', 'PersonController');
+
+Route::resource('cars', 'CarController');
